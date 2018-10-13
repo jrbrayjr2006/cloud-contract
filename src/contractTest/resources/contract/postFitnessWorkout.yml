@@ -1,0 +1,32 @@
+description:
+  ```
+  Given
+
+  When
+
+  Then
+
+  ```
+name: Fitness Event
+request:
+  url: /fitnessEntry
+  method: POST
+  headers:
+    contentType: application/json
+  body:
+    id: 123-id
+    exerciseName: pushups
+    exerciseDescription: 3 sets of 15 pushups
+  matchers:
+    body:
+      - path: $.id
+        type: by_regex
+        value:
+      - path: $.exerciseName
+        type: by_regex
+        value:
+      - path: $.exerciseDescription
+        type: by_regex
+        value:
+response:
+  status: 200

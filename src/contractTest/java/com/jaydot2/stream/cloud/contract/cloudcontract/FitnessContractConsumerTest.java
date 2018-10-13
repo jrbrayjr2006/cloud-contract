@@ -19,7 +19,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureStubRunner(ids = {"com.example:http-server:+:stubs:8080"}, stubsMode = StubRunnerProperties.StubsMode.LOCAL)
-public class FitnessContractTest {
+public class FitnessContractConsumerTest {
 
     @Autowired
     StubRunner stubRunner;

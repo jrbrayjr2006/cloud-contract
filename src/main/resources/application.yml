@@ -1,0 +1,14 @@
+server:
+  port: 8083
+spring:
+  cloud:
+    stream:
+      bindings:
+        fitness-input-channel:
+          destination: jaydot2.fitness.input
+          contentType: application/json
+          group: queue
+        fitness-output-channel:
+          destination: jaydot2.fitness.output
+          contentType: application/json
+          group: queue
