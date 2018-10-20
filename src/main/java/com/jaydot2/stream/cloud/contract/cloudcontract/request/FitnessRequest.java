@@ -3,7 +3,6 @@ package com.jaydot2.stream.cloud.contract.cloudcontract.request;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.stereotype.Component;
 
-@Component
 public class FitnessRequest {
 
     @JsonProperty

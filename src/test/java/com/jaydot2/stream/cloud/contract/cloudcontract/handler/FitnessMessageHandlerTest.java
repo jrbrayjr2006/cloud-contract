@@ -2,6 +2,7 @@ package com.jaydot2.stream.cloud.contract.cloudcontract.handler;
 
 import com.jaydot2.stream.cloud.contract.cloudcontract.event.FitnessEvent;
 import com.jaydot2.stream.cloud.contract.cloudcontract.event.FitnessRequestEvent;
+import com.jaydot2.stream.cloud.contract.cloudcontract.request.FitnessRequest;
 import com.jaydot2.stream.cloud.contract.cloudcontract.transform.FitnessRequestTransformer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -31,11 +32,12 @@ public class FitnessMessageHandlerTest {
     void shouldTransformMessage() {
         // Given
         FitnessRequestEvent fitnessRequestEvent = new FitnessRequestEvent("situps", 10, 3);
+        FitnessRequest request = new FitnessRequest("situps", "3 sets of 10 reps");
         FitnessEvent fitnessEvent = new FitnessEvent();
         // When
-        when(mockFitnessRequestTransformer.transformRequestToEvent(fitnessRequestEvent)).thenReturn(fitnessEvent);
-        fitnessMessageHandler.processFitnessRequest(fitnessRequestEvent);
+        when(mockFitnessRequestTransformer.transformRequestToEvent(request)).thenReturn(fitnessEvent);
+        fitnessMessageHandler.processFitnessRequest(request);
         // Then
-        verify(mockFitnessRequestTransformer).transformRequestToEvent(fitnessRequestEvent);
+        verify(mockFitnessRequestTransformer).transformRequestToEvent(request);
     }
 }

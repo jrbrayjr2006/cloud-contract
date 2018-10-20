@@ -6,9 +6,33 @@ This project provides a sample reference application for implementing Spring Clo
 
 ## Details
 
+### Configuration
+
+1. Add the gradle dependency management configuration for Spring Cloud Contracts:  
+    ```groovy
+    dependencyManagement {
+        imports {
+            mavenBom: 'org.springframework.cloud:spring-cloud-contract-dependencies:2.0.1.RELEASE'
+        }
+    }
+    ```
+2. Add the Spring cloud contract dependencies.
+    ```groovy
+    testCompile('org.springframework.cloud:spring-cloud-starter-contract-verifier')
+    ```
+3. Add the Spring Contract Plugin.
+    ```groovy
+    apply plugin: "io.spring.dependency-management"
+    apply plugin: 'spring-cloud-contract'
+    ```
+
 ### The Producer
 
+The producer uses an interface to send a message to the output channel.
+
 ### The Consumer
+
+The consumer listens and retrieves messages from the input channel.
 
 ## Testing
 

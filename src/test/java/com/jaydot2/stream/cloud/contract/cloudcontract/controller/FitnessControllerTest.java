@@ -1,6 +1,7 @@
 package com.jaydot2.stream.cloud.contract.cloudcontract.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.jaydot2.stream.cloud.contract.cloudcontract.controller.FitnessController;
 import com.jaydot2.stream.cloud.contract.cloudcontract.request.FitnessRequest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

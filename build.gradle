@@ -1,12 +1,18 @@
 buildscript {
 	ext {
 		springBootVersion = '2.0.5.RELEASE'
+		springCloudContractVersion = '2.0.2.BUILD-SNAPSHOT'
 	}
 	repositories {
 		mavenCentral()
+		maven {
+			url 'https://repo.spring.io/libs-snapshot'
+		}
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath("io.spring.gradle:dependency-management-plugin:0.6.0.RELEASE")
+		classpath("org.springframework.cloud:spring-cloud-contract-gradle-plugin:${springCloudContractVersion}")
 	}
 }
 
@@ -14,6 +20,7 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'spring-cloud-contract'
 apply plugin: 'idea'
 
 group = 'com.jaydot2.stream.cloud.contract'
@@ -22,6 +29,9 @@ sourceCompatibility = 10
 
 repositories {
 	mavenCentral()
+	maven {
+		url 'https://repo.spring.io/libs-snapshot'
+	}
 }
 
 
@@ -48,6 +58,7 @@ dependencies {
 dependencyManagement {
 	imports {
 		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+		mavenBom "org.springframework.cloud:spring-cloud-contract-dependencies:${springCloudContractVersion}"
 	}
 }
 
@@ -61,3 +72,10 @@ idea {
 		testResourceDirs += file('src/integrationTest/resources')
 	}
 }
+
+// In this section you define all Spring Cloud Contract Verifier Gradle Plugin properties
+contracts {
+	baseClassForTests = 'com.jaydot2.stream.cloud.contract.cloudcontract.FitnessContractProducerTest'
+	// fully qualified name to a class that will be the base class for your generated test classes
+}// Unnecessary if you're using Spring Cloud Stub Runner only
+
