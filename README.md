@@ -4,6 +4,12 @@
 
 This project provides a sample reference application for implementing Spring Cloud Contract.
 
+## Details
+
+### The Producer
+
+### The Consumer
+
 ## Testing
 
 This section describes important aspects of Spring Cloud Stream and Spring Cloud Contract testing.
@@ -12,13 +18,13 @@ This section describes important aspects of Spring Cloud Stream and Spring Cloud
 
 ```groovy
 dependencies {
-	...
-	testImplementation('org.springframework.boot:spring-boot-starter-test')
-	testImplementation('org.springframework.cloud:spring-cloud-starter-contract-stub-runner')
-	testImplementation('org.springframework.cloud:spring-cloud-starter-contract-verifier')
-	testImplementation('org.springframework.cloud:spring-cloud-stream-test-support')
+    ...
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+    testImplementation('org.springframework.cloud:spring-cloud-starter-contract-stub-runner')
+    testImplementation('org.springframework.cloud:spring-cloud-starter-contract-verifier')
+    testImplementation('org.springframework.cloud:spring-cloud-stream-test-support')
 
-	// Junit 5
+    // Junit 5
     testImplementation('org.junit.jupiter:junit-jupiter-api:5.3.1')
     testImplementation('org.junit.jupiter:junit-jupiter-params:5.3.1')
     testImplementation('org.mockito:mockito-junit-jupiter:2.23.0')
