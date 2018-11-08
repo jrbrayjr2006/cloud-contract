@@ -8,7 +8,29 @@ spring:
           destination: jaydot2.fitness.input
           contentType: application/json
           group: queue
+          consumer:
+            max-attempts: 5
         fitness-output-channel:
           destination: jaydot2.fitness.output
           contentType: application/json
-          group: queue
+          producer:
+            dlqDeadLetterExchange: errors
+            requiredGroups: queue
+            autoBindDlq: true
+            republishToDlq: true
+      rabbit:
+        bindings:
+          fitness-input-channel:
+            destination: jaydot2.fitness.input
+            contentType: application/json
+            group: queue
+            consumer:
+              max-attempts: 5
+          fitness-output-channel:
+            destination: jaydot2.fitness.output
+            contentType: application/json
+            producer:
+              dlqDeadLetterExchange: errors
+              requiredGroups: queue
+              autoBindDlq: true
+              republishToDlq: true
