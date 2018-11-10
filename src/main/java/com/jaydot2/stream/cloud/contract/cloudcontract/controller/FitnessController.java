@@ -16,6 +16,6 @@ public class FitnessController {
             consumes = MediaType.APPLICATION_JSON_VALUE)
     public FitnessResponse saveMyExercise(FitnessRequest request) {
         FitnessResponse response = new FitnessResponse();
-        return null;
+        return response;
     }
 }
