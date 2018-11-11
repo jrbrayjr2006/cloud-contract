@@ -34,3 +34,5 @@ spring:
               requiredGroups: queue
               autoBindDlq: true
               republishToDlq: true
+#logging:
+#  level: DEBUG
