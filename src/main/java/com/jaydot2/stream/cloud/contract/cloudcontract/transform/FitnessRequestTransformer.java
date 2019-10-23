@@ -8,6 +8,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class FitnessRequestTransformer {
 
+    public FitnessRequestTransformer() {}
+
     public FitnessEvent transformRequestToEvent(FitnessRequest fitnessRequest) {
         FitnessEvent event = new FitnessEvent();
         return event;
